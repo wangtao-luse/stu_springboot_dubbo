@@ -1,0 +1,3 @@
+1.基本框架：springboot +dubbo+mybatis plus
+   dubbo:http://dubbo.apache.org/en-us/
+2.数据库：oracle
