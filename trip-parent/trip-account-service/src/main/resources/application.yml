@@ -1,0 +1,21 @@
+#端口号
+server:
+  port: "@server.account.port@"
+spring: 
+#数据库配置相关
+  datasource: 
+    url: "@spring.datasource.url@"
+    driver-class-name: "@spring.datasource.driverClassName@"
+    username: "@spring.datasource.username@"
+    password: "@spring.datasource.password@"
+    
+
+#mybatis plus
+mybatis-plus:
+  mapper-locations: classpath:classpath*:mapping/*.xml
+  type-aliases-package: com.tour.model
+#dubbo
+dubbo:  application:    name: trip-account-provider
+  registry:    address: zookeeper://localhost:2181
+  protocol:    name: dubbo
+    port: 20880 

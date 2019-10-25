@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <!-- 提供程序的应用程序名称，用于跟踪依赖关系 -->
+    <dubbo:application name="trip-account-provider"/>
+    <!--使用zookeeper注册中心导出服务 -->
+    <dubbo:registry address="zookeeper://localhost:2181"/>
+    <!-- 使用dubbo协议导出20880端口上的服务 -->
+    <dubbo:protocol name="dubbo" port="20880"/>
+    <!-- 服务实现，与常规本地bean相同 -->
+    <bean id="testService" class="com.trip.service.TestServiceImpl"/>
+    <!--声明要导出的服务接口 -->
+    <dubbo:service interface="com.trip.api.TestApi" ref="testService" timeout="300" retries="2"/>
+    <!--
+      http://dubbo.apache.org/zh-cn/docs/user/recommend.html
+               建议在 Provider 端配置的 Consumer 端属性有：
+			timeout：方法调用的超时时间;
+			retries：失败重试次数，缺省是 2;
+			loadbalance：负载均衡算法 ，缺省是随机 random。
+						还可以配置轮询 roundrobin、最不活跃优先 leastactive 和一致性哈希 consistenthash 等；
+			actives：消费者端的最大并发调用限制，即当 Consumer 对一个服务的并发调用到上限后，新调用会阻塞直到超时，
+				在方法上配置 dubbo:method 则针对该方法进行并发限制，在接口上配置 dubbo:service，则针对该服务进行并发限制; -->
+</beans>
