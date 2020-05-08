@@ -132,10 +132,10 @@
                 <server.zuul.port>9091</server.zuul.port>
                 <eureka.host>127.0.0.1</eureka.host>
                 <!-- 数据库相关 -->
-                <spring.datasource.url>jdbc:oracle:thin:@10.103.32.24:1521:onlinetest</spring.datasource.url>
+                <spring.datasource.url>jdbc:oracle:thin:@localhost:1521:onlinetest</spring.datasource.url>
                 <spring.datasource.driverClassName>oracle.jdbc.driver.OracleDriver</spring.datasource.driverClassName>
-                <spring.datasource.username>onlinetest</spring.datasource.username>
-                <spring.datasource.password>onlinetest438</spring.datasource.password>
+                <spring.datasource.username>123</spring.datasource.username>
+                <spring.datasource.password>123</spring.datasource.password>
                 <!-- dubbo -->
                 <dubbo.zookeeper.host>127.0.0.1</dubbo.zookeeper.host>
                 <dubbo.zookeeper.port>2181</dubbo.zookeeper.port>
